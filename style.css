@@ -1,0 +1,319 @@
+/* Page styling */
+* {
+  /* outline: 1px solid red; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --primary-color: white;
+  --secondary-color: rgb(241, 236, 236);
+  --text-color: black;
+  --gap: 16px;
+}
+
+body.page-skeleton {
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    "sidebar main"
+    "footer footer";
+  height: 100vh;
+  gap: var(--gap);
+  background-color: var(--secondary-color);
+}
+
+.side-bar {
+  grid-area: sidebar;
+  background-color: var(--primary-color);
+  padding: var(--gap);
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.logoAndName {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-left: -10px;
+  padding-left: 0px;
+}
+
+.side.second-section {
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+.side.third-section .sub-section {
+  margin-top: 10px;
+}
+
+.side.third-section .bottom-section {
+  margin-top: 235px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+}
+
+.userProfile img {
+  border-radius: 15px;
+}
+
+.main-section {
+  grid-area: main;
+  /* padding: var(--gap); */
+  background-color: var(--secondary-color);
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  grid-area: footer;
+  background-color: var(--primary-color);
+  text-align: center;
+  padding: 10px 0;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.welcome,
+.overview-cards,
+.main-section.third-section {
+  background-color: var(--primary-color);
+  padding: var(--gap);
+}
+
+.welcome {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-section .overview-cards {
+  display: flex;
+  gap: 2px;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+.main-section .overview-cards > div {
+  height: 100px;
+  flex: 1;
+  min-width: 0;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  grid-template-areas: "left right";
+}
+
+.left-column {
+  margin-top: 23px;
+  grid-area: left;
+  padding: 2px;
+  background: var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: fit-content;
+}
+
+.right-column {
+  grid-area: right;
+}
+
+.personal-details {
+  display: flex;
+  justify-content: space-between; /* push left & right*/
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #eee;
+  background-color: var(--primary-color);
+  padding: 7px 10px;
+}
+
+.personal-details img {
+  border-radius: 5px;
+}
+
+/* Left side: image + text */
+.detail-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Right side: buttons*/
+.detail-right {
+  display: flex;
+  gap: 10px;
+}
+
+.detail-right button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.explore-departments {
+  height: 130px;
+  background-color: var(--primary-color);
+  padding: 4px 8px;
+  /* border: 1px solid red; */
+}
+
+.explore-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.explore-departments .boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 8px;
+}
+
+.explore-departments .boxes div {
+  height: 80px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background-color: var(--secondary-color);
+}
+
+/* .recent-consultations {
+  height: 130px;
+} */
+
+.recent-consultations {
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  margin-top: 5px;
+}
+
+.recent-consultations-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 30px 0px 5px;
+}
+
+.recent-consultations-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.recent-consultations-table thead {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #777;
+}
+
+.recent-consultations-table tbody tr {
+  border-top: 1px solid #eee;
+}
+
+.recent-consulations-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.recent-consultations-table tr th {
+  margin-left: 0;
+  text-align: left;
+}
+
+.recent-consultations-table td,
+.recent-consultations-table th {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 16px 12px;
+  text-align: left;
+}
+
+.recent-consultations-table .profile {
+  display: flex;
+  /* gap: 2px; */
+}
+
+.profile img {
+  border-radius: 50%;
+}
+
+.right-column {
+  margin-left: 8px;
+}
+
+.health-summary {
+  background-color: var(--primary-color);
+  margin-top: 22px;
+  border-radius: 8px;
+  height: 210px;
+}
+
+.health-summary h3 {
+  margin: 0px 2px 5px 3px;
+}
+
+.health-summary .boxes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  background-color: var(--primary-color);
+  border-radius: 8px;
+}
+
+.health-summary .box {
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fff, #fbfdff);
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  padding-bottom: 8px;
+  text-align: center;
+}
+
+.popular-doctors-section {
+  margin-top: 15px;
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  height: 242px;
+}
+
+.popular-doctors-section h3 {
+  margin-bottom: 0px;
+}
+
+.popular-doctors {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 20px);
+  gap: 60px;
+  background-color: var(--primary-color);
+  height: 254px;
+  padding: 20px 3px;
+}
+
+.doc {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+.doc img {
+  border-radius: 50%;
+}
