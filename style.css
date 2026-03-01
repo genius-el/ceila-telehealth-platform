@@ -45,6 +45,7 @@ body.page-skeleton {
 
 .side.second-section {
   margin-bottom: 20px;
+  padding-bottom: 20px;
   border-bottom: 1px solid var(--secondary-color);
 }
 
@@ -53,10 +54,19 @@ body.page-skeleton {
 }
 
 .side.third-section .bottom-section {
-  margin-top: 235px;
+  margin-top: 320px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: grey;
 }
 
 .userProfile {
@@ -97,7 +107,7 @@ footer {
 
 .main-section .overview-cards {
   display: flex;
-  gap: 2px;
+  gap: 6px;
   /* justify-content: space-between; */
   align-items: center;
 }
@@ -105,8 +115,38 @@ footer {
 .main-section .overview-cards > div {
   height: 100px;
   flex: 1;
+  padding: 7px;
   min-width: 0;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.overview-cards .box div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.iconBox1, .iconBox2, .iconBox3, .iconBox4 {
+  padding: 4px;
+}
+
+.iconBox1 {
+  background-color: rgb(174, 241, 174);
+  border-radius: 5px;
+}
+
+.iconBox2 {
+  background-color: rgb(174, 210, 241);
+  border-radius: 5px;
+}
+
+.iconBox3 {
+  background-color: rgb(241, 174, 200);
+  border-radius: 5px;
+}
+
+.iconBox4 {
+  background-color: rgb(241, 230, 174);
   border-radius: 5px;
 }
 
@@ -139,17 +179,42 @@ footer {
   border: 1px solid #eee;
   background-color: var(--primary-color);
   padding: 7px 10px;
+  height: 120px;
+  border-radius: 5px;
 }
 
 .personal-details img {
   border-radius: 5px;
+  align-self: flex-start;
 }
 
 /* Left side: image + text */
 .detail-left {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   gap: 10px;
+}
+
+
+.doc-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detail-left .status {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.detail-left .status p:first-child {
+  color: darkgreen;
+  background: lightgreen;
+  border-radius: 15px;
+  padding: 2px 6px;
+  font-size: small;
+  margin-left: -12px;
 }
 
 /* Right side: buttons*/
@@ -160,22 +225,34 @@ footer {
 
 .detail-right button {
   padding: 6px 12px;
-  border-radius: 6px;
+  border-radius: 15px;
   border: 1px solid #ccc;
   background: white;
   cursor: pointer;
+}
+
+.detail-right button:first-child {
+  background-color: darkgreen;
+  color: white;
+}
+
+.detail-right button:last-child {
+  background-color: transparent;
+  color: darkgreen;
+  border: 1px solid darkgreen;
 }
 
 .explore-departments {
   height: 130px;
   background-color: var(--primary-color);
   padding: 4px 8px;
-  /* border: 1px solid red; */
+  border-radius: 5px;
 }
 
 .explore-header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 8px;
 }
 
 .explore-departments .boxes {
@@ -185,6 +262,10 @@ footer {
 }
 
 .explore-departments .boxes div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 80px;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
@@ -205,6 +286,10 @@ footer {
   display: flex;
   justify-content: space-between;
   padding: 0px 30px 0px 5px;
+}
+
+.recent-consultations-header h3:first-child {
+  padding: 0px 2px 0px 7px;
 }
 
 .recent-consultations-table {
@@ -263,6 +348,7 @@ footer {
 }
 
 .health-summary h3 {
+  padding: 0px 2px 0px 7px;
   margin: 0px 2px 5px 3px;
 }
 
@@ -270,6 +356,7 @@ footer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
+  padding: 5px;
   background-color: var(--primary-color);
   border-radius: 8px;
 }
@@ -281,17 +368,56 @@ footer {
   background: linear-gradient(180deg, #fff, #fbfdff);
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
   padding-bottom: 8px;
+  /* gap: 10px; */
+  /* text-align: center; */
+}
+
+.health-summary .box div:first-child {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  gap: 2px;
+}
+
+.health-summary .box div:first-child p {
   text-align: center;
+  margin-bottom: 5px;
+  font-size: smaller;
+}
+
+.healthIcon1 {
+  background-color: rgb(244, 180, 180);
+  padding: 1px;
+  border-radius: 5px;
+}
+
+.healthIcon2 {
+  background-color: rgb(204, 230, 239);
+  padding: 1px;
+  border-radius: 5px;
+}
+
+.healthIcon3 {
+  background-color: peachpuff;
+  padding: 1px;
+  border-radius: 5px;
+}
+
+.healthIcon4 {
+  background-color: rgb(211, 160, 211);
+  padding: 1px;
+  border-radius: 5px;
 }
 
 .popular-doctors-section {
   margin-top: 15px;
   background-color: var(--primary-color);
   border-radius: 8px;
-  height: 242px;
+  height: 330px;
 }
 
 .popular-doctors-section h3 {
+  padding: 0px 2px 0px 7px;
   margin-bottom: 0px;
 }
 
@@ -305,12 +431,17 @@ footer {
   padding: 20px 3px;
 }
 
+.popular-doctors div:first-child {
+  margin-top: 0px;
+}
+
 .doc {
-  height: 70px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  padding-bottom: 5px;
   border-bottom: 1px solid var(--secondary-color);
 }
 

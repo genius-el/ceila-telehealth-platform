@@ -1,164 +1,382 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="IE-edge">
-        <title>Ceila Dashboard</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body class="page-skeleton">
-        <aside class="side-bar">
-            <section class="side logo-section">
-                <div class="logoAndName">
-                    <img src="./images/logo.png" width="30px" height="30px" class="logo">
-                    <p>Ceila</p>
-                </div>
-                <p>Telehealth Platforms</p>
-            </section>
-            <section class="side second-section">
-                <h2>MAIN</h2>
-                <div><p>Dashboard</p></div>
-                <div><p>Appointments</p></div>
-                <div><p>Messages</p></div>
-            </section>
-            <section class="side third-section">
-                <h2>MEDICAL</h2>
-                <div><p>Medical Boards</p></div>
-                <div><p>Prescriptions</p></div>
-                <div><p>Billing</p></div>
-                <div><p>Find Doctors</p></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <title>Ceila Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="page-skeleton">
+    <aside class="side-bar">
+      <section class="side logo-section">
+        <div class="logoAndName">
+          <img
+            src="./images/logo.png"
+            width="30px"
+            height="30px"
+            class="logo"
+          />
+          <p>Ceila</p>
+        </div>
+        <p>Telehealth Platforms</p>
+      </section>
+      <section class="side second-section">
+        <h2>MAIN</h2>
+        <div><a href="#">Dashboard</a></div>
+        <div><a href="#">Appointments</a></div>
+        <div><a href="#">Messages</a></div>
+      </section>
+      <section class="side third-section">
+        <h2>MEDICAL</h2>
+        <div><a href="#">Medical Boards</a></div>
+        <div><a href="#">Prescriptions</a></div>
+        <div><a href="#">Billing</a></div>
+        <div><a href="#">Find Doctors</a></div>
 
-                <section class="sub-section">
-                    <h2>GENERAL</h2>
-                    <div><p>Notifications</p></div>
-                    <div><p>Settings</p></div>
-                    <div><p>Support</p></div>
-                </section>
+        <section class="sub-section">
+          <h2>GENERAL</h2>
+          <div><a href="#">Notifications</a></div>
+          <div><a href="#">Settings</a></div>
+          <div><a href="#">Support</a></div>
+        </section>
 
-                <div class="bottom-section">
-                    <div class="userProfile">
-                        <img src="./images/Elvis Michael.jpg" width="30px" height="30px">
-                        <div>
-                            <p>Abraham Beukaring</p>
-                            <p>abraham@celiacare.org</p>
-                        </div>
-                    </div>        
-                    <div>></div>
+        <div class="bottom-section">
+          <div class="userProfile">
+            <img src="./images/Elvis Michael.jpg" width="30px" height="30px" />
+            <div>
+              <p>Abraham Beukaring</p>
+              <p>abraham@celiacare.org</p>
+            </div>
+          </div>
+          <div>></div>
+        </div>
+      </section>
+    </aside>
+    <main class="main-section">
+      <section class="welcome">
+        <div>
+          <p>Welcome back, Abraham</p>
+          <h3>Here's an overview of your health and upcoming appointments</h3>
+        </div>
+
+        <form action="#">
+          <input
+            type="search"
+            id="search-box"
+            name="query"
+            placeholder="Search doctors, records"
+          />
+        </form>
+      </section>
+      <section class="overview-cards">
+        <div class="box box1">
+          <div>
+            <p>Upcoming Appointments</p>
+            <div class="iconBox1">
+              <img
+                src="./images/dashboardIcons/appointmentsIcon.jpg"
+                width="18px"
+                height="18px"
+              />
+            </div>
+          </div>
+          <h2>04</h2>
+          <p>Next: Jan 30</p>
+        </div>
+        <div class="box box2">
+          <div>
+            <p>Consultations This Week</p>
+            <div class="iconBox2">
+              <img
+                src="./images/dashboardIcons/consultationsIcon.jpg"
+                width="18px"
+                height="18px"
+              />
+            </div>
+          </div>
+          <h2>12</h2>
+          <p>12% from last week</p>
+        </div>
+        <div class="box box3">
+          <div>
+            <p>Unread Messages</p>
+            <div class="iconBox3">
+              <img
+                src="./images/dashboardIcons/messagesIcon.png"
+                width="18px"
+                height="18px"
+              />
+            </div>
+          </div>
+          <h2>03</h2>
+          <p>from 2 doctors</p>
+        </div>
+        <div class="box box4">
+          <div>
+            <p>Active Prescriptions</p>
+            <div class="iconBox4">
+              <img
+                src="./images/dashboardIcons/prescriptionsIcon.png"
+                width="18px"
+                height="18px"
+              />
+            </div>
+          </div>
+          <h2>05</h2>
+          <p>2 need refill</p>
+        </div>
+      </section>
+      <section class="dashboard-content">
+        <div class="left-column">
+          <div class="personal-details">
+            <div class="detail-left">
+              <div>
+                <img
+                  src="./images/Elvis Michael.jpg"
+                  width="70px"
+                  height="50px"
+                />
+              </div>
+              <div class="doc-details">
+                <div class="status">
+                  <p>UPCOMING</p>
+                  <p>Video Consultation</p>
                 </div>
-                
-            </section>
-        </aside>
-        <main class="main-section">
-            <section class="welcome">
+                <p>DR. Yeashfin Jhosef</p>
+                <p>Cardiologist . Heart Health Review</p>
+                <p>📅Today, Feb 20 ⏲10:00AM</p>
+              </div>
+            </div>
+            <div class="detail-right">
+              <div>
+                <button>Join a call</button>
+                <button>Reschedule</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-departments">
+            <div class="explore-header">
+              <h3>Explore Departments</h3>
+              <h3><a>View all</a></h3>
+            </div>
+            <div class="boxes">
+              <div class="box1">
+                <img
+                  src="./images/New-heartPNG.png"
+                  width="25px"
+                  height="25px"
+                />
+                <p>Cardiologist</p>
+              </div>
+              <div class="box2">
+                <img
+                  src="./images/New-toothPNG.png"
+                  width="25px"
+                  height="25px"
+                />
+                <p>Dentist</p>
+              </div>
+              <div class="box3">
+                <img
+                  src="./images/New-UrethraPNG.png"
+                  width="25px"
+                  height="25px"
+                />
+                <p>Urologist</p>
+              </div>
+              <div class="box4">
+                <img
+                  src="./images/headWithBrainPNG.png"
+                  width="25px"
+                  height="25px"
+                />
+                <p>Neurologist</p>
+              </div>
+              <div class="box5">
+                <img src="./images/brainPNG.png" width="25px" height="25px" />
+                <p>Psychologist</p>
+              </div>
+              <div class="box6">
+                <img src="./images/bonesPNG.png" width="25px" height="25px" />
+                <p>Orthopaedic</p>
+              </div>
+            </div>
+          </div>
+          <div class="recent-consultations">
+            <div class="recent-consultations-header">
+              <h3>Recent Consultations</h3>
+              <h3><a class="view-all">View all</a></h3>
+            </div>
+            <table class="recent-consultations-table">
+              <tr>
+                <th>DOCTOR</th>
+                <th>TYPE</th>
+                <th>DATE</th>
+                <th>STATUS</th>
+                <th>ACTION</th>
+              </tr>
+              <tr>
+                <td class="profile">
+                  <div>
+                    <img
+                      src="./images/Elvis Michael.jpg"
+                      width="25px"
+                      height="25px"
+                    />
+                  </div>
+                  <p>DR. Alan James</p>
+                </td>
+                <td>Opthalmologist</td>
+                <td>Dec. 31, 2015</td>
+                <td>Completed</td>
+                <td><a>View</a></td>
+              </tr>
+              <tr>
+                <td class="profile">
+                  <div>
+                    <img
+                      src="./images/Elvis Michael.jpg"
+                      width="25px"
+                      height="25px"
+                    />
+                  </div>
+                  <p>DR. Yeashfin Jhosef</p>
+                </td>
+                <td>Paediatrician</td>
+                <td>Dec. 31, 2015</td>
+                <td>Completed</td>
+                <td><a>View</a></td>
+              </tr>
+              <tr>
+                <td class="profile">
+                  <div>
+                    <img
+                      src="./images/Elvis Michael.jpg"
+                      width="25px"
+                      height="25px"
+                    />
+                  </div>
+                  <p>DR. Jessica Jones</p>
+                </td>
+                <td>Neurosurgeon</td>
+                <td>Dec. 31, 2015</td>
+                <td>Completed</td>
+                <td><a>View</a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="health-summary">
+            <h3>Health Summary</h3>
+            <div class="boxes">
+              <div class="box">
                 <div>
-                    <p>Welcome back, Abraham</p>
-                    <h3>Here's an overview of your health and upcoming appointments</h3>
+                  <img
+                    class="healthIcon1"
+                    src="./images/bloodPressureIcon.png"
+                    width="18px"
+                    height="18px"
+                  />
+                  <p>Blood Pressure</p>
                 </div>
-                
-                <form action="#"><input type="search" id="search-box" name="query" placeholder="Search doctors, records"></form>
-            </section>
-            <section class="overview-cards">
-                <div class="box box1"></div>
-                <div class="box box2"></div>
-                <div class="box box3"></div>
-                <div class="box box4"></div>
-            </section>
-            <section class="dashboard-content">
-                <div class="left-column">
-                    <div class="personal-details">
-                        <div class="detail-left">
-                            <div>
-                                <img src="./images/Elvis Michael.jpg" width="70px" height="50px">
-                            </div>
-                            <div>
-                                <p>Yeashfin Jhosef</p>
-                                <p>📅Sunday, Dec 31 ⏲10:00AM</p>
-                            </div>
-                        </div>
-                        <div class="detail-right">
-                            <div>
-                                <button>Join a call</button>
-                                <button>Reschedule</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="explore-departments">
-                        <div class="explore-header">
-                            <h3>Explore Departments</h3>
-                            <h3><a>View all</a></h3>
-                        </div>
-                        <div class="boxes">
-                            <div class="box1"></div>
-                            <div class="box2"></div>
-                            <div class="box3"></div>
-                            <div class="box4"></div>
-                            <div class="box5"></div>
-                            <div class="box6"></div>
-                        </div>
-                    </div>
-                    <div class="recent-consultations">
-                        <div class="recent-consultations-header">
-                            <h3>Recent Consultations</h3>
-                            <h3><a class="view-all">View all</a></h3>
-                        </div>
-                        <table class="recent-consultations-table">
-                            <tr>
-                                <th>DOCTOR</th>
-                                <th>TYPE</th>
-                                <th>DATE</th>
-                                <th>STATUS</th>
-                                <th>ACTION</th>
-                            </tr>
-                            <tr>
-                                <td class="profile"><div><img src="./images/Elvis Michael.jpg" width="25px" height="25px"></div><p>DR. Alan James</p></td>
-                                <td>Opthalmologist</td>
-                                <td>Dec. 31, 2015</td>
-                                <td>Completed</td>
-                                <td><a>View</a></td>
-                            </tr>
-                            <tr>
-                                <td class="profile"><div><img src="./images/Elvis Michael.jpg" width="25px" height="25px"></div><p>DR. Yeashfin Jhosef</p></td>
-                                <td>Paediatrician</td>
-                                <td>Dec. 31, 2015</td>
-                                <td>Completed</td>
-                                <td><a>View</a></td>
-                            </tr>
-                            <tr>
-                                <td class="profile"><div><img src="./images/Elvis Michael.jpg" width="25px" height="25px"></div><p>DR. Jessica Jones</p></td>
-                                <td>Neurosurgeon</td>
-                                <td>Dec. 31, 2015</td>
-                                <td>Completed</td>
-                                <td><a>View</a></td>
-                            </tr>
-                        </table>
-                    </div>
+                <div class="bloodPressure-stat">
+                  <h5>120/80 mmHg</h5>
+                  <p>Normal</p>
                 </div>
-                <div class="right-column">
-                    <div class="health-summary">
-                        <h3>Health Summary</h3>
-                        <div class="boxes">
-                            <div class="box"></div>
-                            <div class="box"></div>
-                            <div class="box"></div>
-                            <div class="box"></div>
-                        </div>
-                    </div>
-                    <div class="popular-doctors-section">
-                        <h3>Popular Doctors</h3>
-                        <div class="popular-doctors">
-                            <div class="doc"><img src="./images/Elvis Michael.jpg" width="25px" height="25px"><div class="nameReview"><p>DR. Yeashfin Jhosef</p><p>Cardiologist | 4.8(210 reviews)</p></div></div>
-                            <div class="doc"><img src="./images/Elvis Michael.jpg" width="25px" height="25px"><div class="nameReview"><p>DR. Esther Benedict</p><p>Cardiologist | 4.8(210 reviews)</p></div></div>
-                            <div class="doc"><img src="./images/Elvis Michael.jpg" width="25px" height="25px"><div class="nameReview"><p>DR. Samuel Omale</p><p>Neurologist | 4.9(180 reviews)</p></div></div>
-                        </div>
-                    </div>
-                    
+              </div>
+              <div class="box">
+                <div>
+                  <img
+                    class="healthIcon2"
+                    src="./images/heartIcon.png"
+                    width="18px"
+                    height="18px"
+                  />
+                  <p>Heart Rate</p>
                 </div>
-            </section>
-        </main>
-        <footer>
-            <p>© 2024 Ceila. All rights reserved.</p>
-        </footer>
-    </body>
+                <div class="heartRate-stat">
+                  <h5>62 bpm</h5>
+                  <p>Low</p>
+                </div>
+              </div>
+              <div class="box">
+                <div>
+                  <img
+                    class="healthIcon3"
+                    src="./images/bloodSugarIcon.png"
+                    width="18px"
+                    height="18px"
+                  />
+                  <p>Blood Sugar</p>
+                </div>
+                <div class="bloodSugar-stat">
+                  <h5>120 mg/dL</h5>
+                  <p>High</p>
+                </div>
+              </div>
+              <div class="box">
+                <div>
+                  <img
+                    class="healthIcon4"
+                    src="./images/weightIcon.png"
+                    width="18px"
+                    height="18px"
+                  />
+                  <p>Weight</p>
+                </div>
+                <div class="weight-stat">
+                  <h5>165 lbs</h5>
+                  <p>Normal</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="popular-doctors-section">
+            <h3>Popular Doctors</h3>
+            <div class="popular-doctors">
+              <div class="doc">
+                <img
+                  src="./images/Elvis Michael.jpg"
+                  width="25px"
+                  height="25px"
+                />
+                <div class="nameReview">
+                  <p>DR. Yeashfin Jhosef</p>
+                  <p>Cardiologist | 4.8(210 reviews)</p>
+                </div>
+              </div>
+              <div class="doc">
+                <img
+                  src="./images/Elvis Michael.jpg"
+                  width="25px"
+                  height="25px"
+                />
+                <div class="nameReview">
+                  <p>DR. Esther Benedict</p>
+                  <p>Cardiologist | 4.8(210 reviews)</p>
+                </div>
+              </div>
+              <div class="doc">
+                <img
+                  src="./images/Elvis Michael.jpg"
+                  width="25px"
+                  height="25px"
+                />
+                <div class="nameReview">
+                  <p>DR. Samuel Omale</p>
+                  <p>Neurologist | 4.9(180 reviews)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>© 2026 Ceila. All rights reserved.</p>
+    </footer>
+  </body>
 </html>
