@@ -18,21 +18,29 @@ body.page-skeleton {
   width: 100%;
   max-width: 100%;
   display: grid;
-  grid-template-columns: 260px 1fr;
-  grid-template-rows: 1fr auto;
+  /* grid-template-columns: 260px 1fr; */
+  grid-template-columns: 1fr;
+  /* grid-template-rows: 1fr auto; */
+  grid-template-rows: auto 1fr auto; /* auto used for header-like behaviour*/
   grid-template-areas:
-    "sidebar main"
-    "footer footer";
-  height: 100vh;
+    "hamburger"
+    "main"
+    "footer";
+  min-height: 100vh; /* Using min-height for flexibility */
   gap: var(--gap);
   background-color: var(--secondary-color);
 }
 
 .side-bar {
-  grid-area: sidebar;
+  display: none; /* Hidden by default, shown on mobile when hamburger is clicked: toggled via JavaScript */
   background-color: var(--primary-color);
   padding: var(--gap);
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  position: absolute; /* Absolute for overlay on mobile */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full-width on mobile */
+  z-index: 10;
 }
 
 .logoAndName {
@@ -53,8 +61,8 @@ body.page-skeleton {
   margin-top: 10px;
 }
 
-.side.third-section .bottom-section {
-  margin-top: 320px;
+.bottom-section {
+  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -69,6 +77,34 @@ a:hover {
   color: grey;
 }
 
+/* Sidebar Overlay */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0; /* Shorthand for top: 0; right: 0; bottom: 0; left: 0; */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0s linear 0.3s; /* Smooth transition for fade effect */
+  z-index: 5; /* Below the sidebar */
+  cursor: pointer; /* Indicate that the overlay is clickable */
+}
+
+/* When sidebar is visible, show overlay */
+.side-bar.visible ~ .sidebar-overlay {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.3s ease,
+    visibility 0s linear 0s; /* instant visibility*/
+}
+
+/* This is optional */
+body.sidebar-open {
+  overflow: hidden; /* Prevent background scrolling when sidebar is open */
+}
+
 .userProfile {
   display: flex;
   align-items: center;
@@ -78,11 +114,33 @@ a:hover {
   border-radius: 15px;
 }
 
+/* MOBILE SCREEN SUPPORT */
+/* Hamburger Feature For Mobile Screens */
+.hamburger {
+  display: flex; /*Visible by default on mobile */
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 4px;
+  grid-area: hamburger; /* Hamburger placed in grid area */
+  justify-self: start;
+  padding: var(--gap);
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+}
+
 .main-section {
   grid-area: main;
   /* padding: var(--gap); */
   background-color: var(--secondary-color);
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Stack sections vertically on mobile */
 }
 
 footer {
@@ -95,28 +153,30 @@ footer {
 
 .welcome,
 .overview-cards,
-.main-section.third-section {
+.dashboard-content {
   background-color: var(--primary-color);
   padding: var(--gap);
 }
 
 .welcome {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column; /* Stacking welcome text and search bar on Mobile View*/
 }
 
-.main-section .overview-cards {
+.welcome input {
+  width: 100%;
+  padding: 8px;
+}
+
+.overview-cards {
   display: flex;
-  gap: 6px;
-  /* justify-content: space-between; */
-  align-items: center;
+  flex-direction: column; /* Stack cards vertically on mobile */
+  gap: 8px;
 }
 
-.main-section .overview-cards > div {
-  height: 100px;
-  flex: 1;
+.overview-cards > div {
+  min-height: 100px; /* Change from fixed height to min height for flexibility */
   padding: 7px;
-  min-width: 0;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 }
@@ -126,8 +186,12 @@ footer {
   justify-content: space-between;
 }
 
-.iconBox1, .iconBox2, .iconBox3, .iconBox4 {
+.iconBox1,
+.iconBox2,
+.iconBox3,
+.iconBox4 {
   padding: 4px;
+  border-radius: 5px;
 }
 
 .iconBox1 {
@@ -151,50 +215,48 @@ footer {
 }
 
 .dashboard-content {
-  display: grid;
-  grid-template-columns: 1fr 260px;
-  grid-template-areas: "left right";
+  display: flex;
+  flex-direction: column; /*Stack left and right columns vertically on mobile*/
+  gap: 16px;
 }
 
 .left-column {
-  margin-top: 23px;
-  grid-area: left;
-  padding: 2px;
-  background: var(--secondary-color);
   display: flex;
   flex-direction: column;
   gap: 16px;
-  height: fit-content;
 }
 
 .right-column {
-  grid-area: right;
+  order: -1; /* Move right column above left column on mobile */
 }
 
 .personal-details {
   display: flex;
+  flex-direction: column; /* Stack image/text and buttons on mobile */
   justify-content: space-between; /* push left & right*/
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
   border: 1px solid #eee;
   background-color: var(--primary-color);
   padding: 7px 10px;
-  height: 120px;
+  min-height: 120px; /* Change from fixed height to min height for flexibility */
   border-radius: 5px;
 }
 
 .personal-details img {
   border-radius: 5px;
-  align-self: flex-start;
 }
 
-/* Left side: image + text */
 .detail-left {
   display: flex;
-  /* align-items: center; */
+  align-items: flex-start; /* Align to start to prevent misalignment */
   gap: 10px;
+  width: 100%;
 }
 
+.detail-right {
+  gap: 10px;
+}
 
 .doc-details {
   display: flex;
@@ -204,7 +266,7 @@ footer {
 
 .detail-left .status {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
 }
 
@@ -214,13 +276,14 @@ footer {
   border-radius: 15px;
   padding: 2px 6px;
   font-size: small;
-  margin-left: -12px;
 }
 
 /* Right side: buttons*/
 .detail-right {
   display: flex;
   gap: 10px;
+  width: 100%; /*Full with buttons row on mobile */
+  justify-content: space-between;
 }
 
 .detail-right button {
@@ -229,6 +292,7 @@ footer {
   border: 1px solid #ccc;
   background: white;
   cursor: pointer;
+  min-width: 100px; /* Min width for touch targets */
 }
 
 .detail-right button:first-child {
@@ -243,7 +307,7 @@ footer {
 }
 
 .explore-departments {
-  height: 130px;
+  min-height: 130px;
   background-color: var(--primary-color);
   padding: 4px 8px;
   border-radius: 5px;
@@ -266,20 +330,15 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 80px;
+  min-height: 80px;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   background-color: var(--secondary-color);
 }
 
-/* .recent-consultations {
-  height: 130px;
-} */
-
 .recent-consultations {
   border-radius: 5px;
   background-color: var(--primary-color);
-  margin-top: 5px;
 }
 
 .recent-consultations-header {
@@ -296,6 +355,13 @@ footer {
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
+  overflow-x: auto; /* Enable horizontal scrolling on mobile */
+  display: block; /* Make table scrollable on mobile */
+}
+
+.recent-consultations-table td,
+.recent-consultations-table th {
+  padding: 8px 6px; /* Reduced padding for mobile */
 }
 
 .recent-consultations-table thead {
@@ -329,22 +395,17 @@ footer {
 
 .recent-consultations-table .profile {
   display: flex;
-  /* gap: 2px; */
+  gap: 8px; /* Adjusted gap for better alignment */
 }
 
 .profile img {
   border-radius: 50%;
 }
 
-.right-column {
-  margin-left: 8px;
-}
-
-.health-summary {
+.right-column .health-summary {
   background-color: var(--primary-color);
-  margin-top: 22px;
   border-radius: 8px;
-  height: 210px;
+  min-height: 210px; /* Change from fixed height to min height for flexibility */
 }
 
 .health-summary h3 {
@@ -357,25 +418,24 @@ footer {
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
   padding: 5px;
-  background-color: var(--primary-color);
   border-radius: 8px;
 }
 
 .health-summary .box {
-  height: 80px;
+  min-height: 80px;
   border-radius: 8px;
   overflow: hidden;
   background: linear-gradient(180deg, #fff, #fbfdff);
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
-  padding-bottom: 8px;
-  /* gap: 10px; */
-  /* text-align: center; */
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .health-summary .box div:first-child {
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   gap: 2px;
 }
 
@@ -410,10 +470,9 @@ footer {
 }
 
 .popular-doctors-section {
-  margin-top: 15px;
   background-color: var(--primary-color);
   border-radius: 8px;
-  height: 330px;
+  min-height: 330px;
 }
 
 .popular-doctors-section h3 {
@@ -422,12 +481,9 @@ footer {
 }
 
 .popular-doctors {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 20px);
-  gap: 60px;
-  background-color: var(--primary-color);
-  height: 254px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   padding: 20px 3px;
 }
 
@@ -436,10 +492,9 @@ footer {
 }
 
 .doc {
-  height: 50px;
+  min-height: 50px;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 10px;
   padding-bottom: 5px;
   border-bottom: 1px solid var(--secondary-color);
@@ -447,4 +502,135 @@ footer {
 
 .doc img {
   border-radius: 50%;
+}
+
+/* Media Query for Larger Screens (Tablets and Desktops) */
+@media (min-width: 600px) {
+  body.page-skeleton {
+    grid-template-columns: auto 1fr; /* Show sidebar(using auto on sidebar for flexibility) and main content side by side */
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+      "sidebar main"
+      "footer footer";
+  }
+
+  .hamburger {
+    display: none; /* Hide hamburger on larger screens */
+  }
+
+  .side-bar {
+    display: block; /* Show sidebar on larger screens */
+    position: static; /* Static positioning for desktop layout */
+    width: auto; /* Auto width based on content */
+    min-width: 260px; /* Min-width to match original design */
+  }
+
+  .bottom-section {
+    margin-top: 320px; /* Use large margin for Desktop layout */
+  }
+
+  .welcome {
+    flex-direction: row; /*Side by side on desktop */
+    justify-content: space-between;
+  }
+
+  .overview-cards {
+    flex-direction: row; /*Side by side on desktop */
+    gap: 6px;
+    justify-content: space-between;
+  }
+
+  .overview-cards > div {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .dashboard-content {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "left right";
+    gap: 16px;
+  }
+
+  .left-column {
+    margin-top: 23px;
+  }
+
+  .right-column {
+    order: 0; /* Reset order for desktop layout */
+    min-width: 260px;
+    margin-left: 8px;
+    margin-top: 22px;
+  }
+
+  .personal-details {
+    flex-direction: row;
+    height: 120px;
+  }
+
+  .detail-left .status {
+    margin-left: 10px;
+  }
+
+  .detail-left .status p:first-child {
+    margin-left: -12px; /* Adjusted margin for better alignment on desktop */
+  }
+
+  .detail-right {
+    display: flex;
+    width: auto;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+  }
+
+  .explore-departments {
+    min-height: 130px;
+  }
+  .explore-departments .boxes div {
+    display: flex;
+    flex: 1 1 0;
+    min-height: 80px;
+}
+
+  .recent-consultations-table {
+    overflow-x: hidden; /* Hide horizontal scroll on desktop */
+    display: table; /* Reset display for desktop */
+  }
+
+  .recent-consultations-table td,
+  .recent-consultations-table th {
+    padding: 16px 12px; /* Reset padding for desktop */
+  }
+
+  .health-summary {
+    height: 210px;
+  }
+
+  .popular-doctors {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+    height: 254px;
+    gap: 60px;
+  }
+
+  .popular-doctors-section {
+    height: 330px;
+  }
+}
+
+/* Additional Breakpoint for Tablets (optional, between 600-1024px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .overview-cards {
+    flex-wrap: wrap;
+  }
+
+  .explore-departments .boxes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .health-summary .boxes {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
