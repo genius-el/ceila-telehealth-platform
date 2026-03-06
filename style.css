@@ -32,7 +32,6 @@ body.page-skeleton {
 }
 
 .side-bar {
-  display: none; /* Hidden by default, shown on mobile when hamburger is clicked: toggled via JavaScript */
   background-color: var(--primary-color);
   padding: var(--gap);
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
@@ -41,6 +40,68 @@ body.page-skeleton {
   left: 0;
   width: 100%; /* Full-width on mobile */
   z-index: 10;
+  transform: translateX(-100%); /* Start off-screen */
+  transition: transform 0.3s ease; /* Smooth slide-in effect */
+}
+
+body.sidebar-open .side-bar {
+  transform: translateX(0); /* Slide in when sidebar is open */
+}
+
+/* Sidebar Overlay */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0; /* Shorthand for top: 0; right: 0; bottom: 0; left: 0; */
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0s linear 0.3s; /* Smooth transition for fade effect */
+  z-index: 9; /* Below the sidebar */
+  cursor: pointer; /* Indicate that the overlay is clickable */
+}
+
+/* When sidebar is visible, show overlay */
+.body.sidebar-open .sidebar-overlay {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.3s ease,
+    visibility 0s linear 0s; /* instant visibility*/
+}
+
+/* This is optional: Prevent scrolling main content when sidebar is open */
+body.sidebar-open {
+  overflow: hidden; /* Prevent background scrolling when sidebar is open */
+}
+
+/* MOBILE SCREEN SUPPORT */
+/* Hamburger Feature For Mobile Screens */
+.hamburger {
+  display: flex; /*Visible by default on mobile */
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 4px;
+  grid-area: hamburger; /* Hamburger placed in grid area */
+  justify-self: start;
+  padding: var(--gap);
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+}
+
+/* Making sidebar take full height on mobile */
+@media (max-width: 599px) {
+  .side-bar {
+    height: 100vh; /* Full viewport height on mobile */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds viewport height */
+  }
 }
 
 .logoAndName {
@@ -77,34 +138,6 @@ a:hover {
   color: grey;
 }
 
-/* Sidebar Overlay */
-.sidebar-overlay {
-  position: fixed;
-  inset: 0; /* Shorthand for top: 0; right: 0; bottom: 0; left: 0; */
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 0.3s ease,
-    visibility 0s linear 0.3s; /* Smooth transition for fade effect */
-  z-index: 5; /* Below the sidebar */
-  cursor: pointer; /* Indicate that the overlay is clickable */
-}
-
-/* When sidebar is visible, show overlay */
-.side-bar.visible ~ .sidebar-overlay {
-  opacity: 1;
-  visibility: visible;
-  transition:
-    opacity 0.3s ease,
-    visibility 0s linear 0s; /* instant visibility*/
-}
-
-/* This is optional */
-body.sidebar-open {
-  overflow: hidden; /* Prevent background scrolling when sidebar is open */
-}
-
 .userProfile {
   display: flex;
   align-items: center;
@@ -112,26 +145,6 @@ body.sidebar-open {
 
 .userProfile img {
   border-radius: 15px;
-}
-
-/* MOBILE SCREEN SUPPORT */
-/* Hamburger Feature For Mobile Screens */
-.hamburger {
-  display: flex; /*Visible by default on mobile */
-  background: none;
-  border: none;
-  cursor: pointer;
-  flex-direction: column;
-  gap: 4px;
-  grid-area: hamburger; /* Hamburger placed in grid area */
-  justify-self: start;
-  padding: var(--gap);
-}
-
-.hamburger .bar {
-  width: 25px;
-  height: 3px;
-  background-color: black;
 }
 
 .main-section {
@@ -523,6 +536,7 @@ footer {
     position: static; /* Static positioning for desktop layout */
     width: auto; /* Auto width based on content */
     min-width: 260px; /* Min-width to match original design */
+    transform: translateX(0); /* Reset transform for desktop layout */
   }
 
   .bottom-section {
@@ -592,7 +606,7 @@ footer {
     display: flex;
     flex: 1 1 0;
     min-height: 80px;
-}
+  }
 
   .recent-consultations-table {
     overflow-x: hidden; /* Hide horizontal scroll on desktop */
