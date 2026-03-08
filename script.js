@@ -1,35 +1,23 @@
-'use strict';
+"use strict";
 
-// Get references to the sidebar and overlay elements
-const hamburger = document.getElementById('hamburger');
-const sidebar = document.querySelector('.side-bar');
-const overlay = document.getElementById('sidebar-overlay');
-const body = document.body;
+// ======================================================
+// SIDEBAR TOGGLE
+// This script handles opening and closing the sidebar on mobile by toggling CSS classes that we already defined in style.css.
+// ======================================================
 
-// Function to toggle the sidebar and overlay
-function toggleSidebar() {
-    body.classList.toggle('sidebar-open');
-    // No need to toggle class on sidebar anymore -  CSS handles it via body
-}
+// Grab the three elements we need
+const hamburger = document.querySelector(".hamburger");
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("sidebarOverlay");
 
-// Event listener for the hamburger menu
-hamburger.addEventListener('click', toggleSidebar);
+// When the hamburger is clicked, open the sidebar and shwo the overlay
+hamburger.addEventListener("click", function () {
+  sidebar.classList.add("open");
+  overlay.classList.add("show");
+});
 
-// Event listener for the overlay to close the sidebar when clicked
-overlay.addEventListener('click', toggleSidebar);
-
-// Close on Escape key press
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && body.classList.contains(sidebar-open)) {
-        toggleSidebar();
-    }
-})
-
-// Optional: close when clicking menu links on mobile
-document.querySelectorAll('.side-bar a').forEach(link => {
-    link.addEventListener('click', () => {
-        if (window.innerwidth < 600) { 
-            toggleSidebar();
-        }
-    });
+// When the overlay is clicked, close the sidebar and hide the overlay
+overlay.addEventListener("click", function () {
+  sidebar.classList.remove("open");
+  overlay.classList.remove("show");
 });

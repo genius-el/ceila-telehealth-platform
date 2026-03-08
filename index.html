@@ -8,7 +8,22 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="page-skeleton">
-    <aside class="side-bar">
+
+    <!-- Mobile top bar. Hidden on desktop via CSS. -->
+    <div class="mobile-topbar">
+      <span class="brand">Ceila</span>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+
+    <!-- Dark overlay that appears behind the open sidebar on mobile. -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Added id="sidebar" so Javascript can find and toggle it.-->
+    <aside class="side-bar" id="sidebar">
       <section class="side logo-section">
         <div class="logoAndName">
           <img
@@ -54,12 +69,6 @@
         <div>></div>
       </div>
     </aside>
-    <div class="sidebar-overlay" id="sidebar-overlay"></div>
-    <button class="hamburger" id="hamburger">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
     <main class="main-section">
       <section class="welcome">
         <div>
@@ -223,66 +232,71 @@
               <h3>Recent Consultations</h3>
               <h3><a class="view-all">View all</a></h3>
             </div>
-            <table class="recent-consultations-table">
-              <tr>
-                <th>DOCTOR</th>
-                <th>TYPE</th>
-                <th>DATE</th>
-                <th>STATUS</th>
-                <th>ACTION</th>
-              </tr>
-              <tr>
-                <td class="profile">
-                  <div>
-                    <img
-                      src="./images/Elvis Michael.jpg"
-                      width="25px"
-                      height="25px"
-                      alt="Dr. Alan James Profile"
-                    />
-                  </div>
-                  <p>DR. Alan James</p>
-                </td>
-                <td>Opthalmologist</td>
-                <td>Dec. 31, 2015</td>
-                <td>Completed</td>
-                <td><a>View</a></td>
-              </tr>
-              <tr>
-                <td class="profile">
-                  <div>
-                    <img
-                      src="./images/Elvis Michael.jpg"
-                      width="25px"
-                      height="25px"
-                      alt="Dr. Yeashfin Jhosef Profile"
-                    />
-                  </div>
-                  <p>DR. Yeashfin Jhosef</p>
-                </td>
-                <td>Paediatrician</td>
-                <td>Dec. 31, 2015</td>
-                <td>Completed</td>
-                <td><a>View</a></td>
-              </tr>
-              <tr>
-                <td class="profile">
-                  <div>
-                    <img
-                      src="./images/Elvis Michael.jpg"
-                      width="25px"
-                      height="25px"
-                      alt="Dr. Jessica Jones Profile"
-                    />
-                  </div>
-                  <p>DR. Jessica Jones</p>
-                </td>
-                <td>Neurosurgeon</td>
-                <td>Dec. 31, 2015</td>
-                <td>Completed</td>
-                <td><a>View</a></td>
-              </tr>
-            </table>
+
+            <!-- Table wrapped in a scrollable div so it doesn't break the layout on small screens. Users can scroll it horizontally instead. -->
+            <div class="table-scroll-wrapper">
+              <table class="recent-consultations-table">
+                <tr>
+                  <th>DOCTOR</th>
+                  <th>TYPE</th>
+                  <th>DATE</th>
+                  <th>STATUS</th>
+                  <th>ACTION</th>
+                </tr>
+                <tr>
+                  <td class="profile">
+                    <div>
+                      <img
+                        src="./images/Elvis Michael.jpg"
+                        width="25px"
+                        height="25px"
+                        alt="Dr. Alan James Profile"
+                      />
+                    </div>
+                    <p>DR. Alan James</p>
+                  </td>
+                  <td>Opthalmologist</td>
+                  <td>Dec. 31, 2015</td>
+                  <td>Completed</td>
+                  <td><a>View</a></td>
+                </tr>
+                <tr>
+                  <td class="profile">
+                    <div>
+                      <img
+                        src="./images/Elvis Michael.jpg"
+                        width="25px"
+                        height="25px"
+                        alt="Dr. Yeashfin Jhosef Profile"
+                      />
+                    </div>
+                    <p>DR. Yeashfin Jhosef</p>
+                  </td>
+                  <td>Paediatrician</td>
+                  <td>Dec. 31, 2015</td>
+                  <td>Completed</td>
+                  <td><a>View</a></td>
+                </tr>
+                <tr>
+                  <td class="profile">
+                    <div>
+                      <img
+                        src="./images/Elvis Michael.jpg"
+                        width="25px"
+                        height="25px"
+                        alt="Dr. Jessica Jones Profile"
+                      />
+                    </div>
+                    <p>DR. Jessica Jones</p>
+                  </td>
+                  <td>Neurosurgeon</td>
+                  <td>Dec. 31, 2015</td>
+                  <td>Completed</td>
+                  <td><a>View</a></td>
+                </tr>
+              </table>
+            </div>
+            
           </div>
         </div>
         <div class="right-column">
