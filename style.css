@@ -33,6 +33,12 @@ body.page-skeleton {
   background-color: var(--secondary-color);
 }
 
+/* Mobile Header Section */
+.mobile-topbar {
+  display: flex;
+  gap: 250px;
+}
+
 /* =========================================================
   HAMBURGER BUTTON                                          
   Visible on mobile by default. Hidden on desktop via media query.                                                     
@@ -104,6 +110,22 @@ body.page-skeleton {
 /* ========================================================
   SIDEBAR INNER CONTENT
   ======================================================== */
+.logo-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.closeSidebar {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
 
 .logoAndName {
   display: flex;
@@ -399,7 +421,7 @@ footer {
 .recent-consultations-table {
   width: 100%;
   min-width: 480px; /* prevents squishing; scrolls horizontally instead */
-  table-layout: fixed;
+  table-layout: auto;
   border-collapse: collapse;
 }
 
@@ -424,9 +446,9 @@ footer {
 
 .recent-consultations-table td,
 .recent-consultations-table th {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
+  /* white-space: nowrap; */
   padding: 16px 12px;
   text-align: left;
 }
@@ -571,6 +593,10 @@ footer {
   .mobile-topbar {
     display: none; /* Hide the mobile topbar on desktop */
   }
+
+  .logo-section {
+    display: none; /* Hide the logo section in the sidebar on desktop */
+  } 
   /* Hide hamburger - sidebar is always visible on desktop */
   .hamburger {
     display: none; 

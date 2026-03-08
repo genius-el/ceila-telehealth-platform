@@ -11,7 +11,20 @@
 
     <!-- Mobile top bar. Hidden on desktop via CSS. -->
     <div class="mobile-topbar">
-      <span class="brand">Ceila</span>
+      <!-- <span class="brand">Ceila</span> -->
+      <section class="side logo-section">
+        <div class="logoAndName">
+          <img
+            src="./images/logo.png"
+            width="30px"
+            height="30px"
+            class="logo"
+            alt="Ceila Logo"
+          />
+          <p>Ceila</p>
+        </div>
+        <p>Telehealth Platforms</p>
+      </section>
       <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -25,17 +38,20 @@
     <!-- Added id="sidebar" so Javascript can find and toggle it.-->
     <aside class="side-bar" id="sidebar">
       <section class="side logo-section">
-        <div class="logoAndName">
-          <img
-            src="./images/logo.png"
-            width="30px"
-            height="30px"
-            class="logo"
-            alt="Ceila Logo"
-          />
-          <p>Ceila</p>
+        <div class="logoTop">
+          <div class="logoAndName">
+            <img
+              src="./images/logo.png"
+              width="30px"
+              height="30px"
+              class="logo"
+              alt="Ceila Logo"
+            />
+            <p>Ceila</p>
+          </div>
+          <p>Telehealth Platforms</p>
         </div>
-        <p>Telehealth Platforms</p>
+        <button class="closeSidebar">&times;</button>
       </section>
       <section class="side second-section">
         <h2>MAIN</h2>
